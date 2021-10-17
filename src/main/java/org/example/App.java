@@ -3,7 +3,7 @@ package org.example;
 
 import java.util.*;
 
-import static org.example.RemoveDups.*;
+import static org.example.RemoveDupes.*;
 
 /**
  * Exercises for Arrays week 2.
@@ -13,11 +13,10 @@ public class App {
     public static void main(String[] args) {
 
 
-        int[] dupArray = new int []{1, 1, 2, 2, 4, 3, 4, 5, 5, 6, 7, 8, 8 ,9};
-        Arrays.sort(dupArray);
-        int n = dupArray.length;
+        arrayExercise10();
 
-        System.out.println(removeIntDup(dupArray, n));
+
+
 
 
 
@@ -26,7 +25,13 @@ public class App {
     }   //  <-------------------------------------- end of main method
 
 
-                   // ***  Methods below  *** \\
+                     // ***  Methods below  *** \\
+
+    public static String[] addNameToArray(final String[] source, String name) {
+        String[] newArray = Arrays.copyOf(source, source.length +1);
+        newArray[newArray.length-1] = name;
+        return newArray;
+    }   //expands and adds to array made for exercise 9
 
     public static String indexOf(String task, String[] array) {
         for (String string : array) {
@@ -45,7 +50,7 @@ public class App {
 
         }
         return (double) result / n;
-    } //reusable method for counting the average
+    }    //reusable method for counting the average
 
 
     public static String[] addToStringArray(final String[] learnJava, String string) {
@@ -235,10 +240,40 @@ public class App {
 
         int n = dupArray.length;
         System.out.println(removeStringDup(dupArray, n));
-    }
+    }   //uses method
 
     public static void arrayExercise9() {
 
+        String[] names = new String[0];
+
+        names = addNameToArray(names, "Karmand Aziz");
+
+        System.out.println(Arrays.toString(names));
+
+    }
+
+    public static void arrayExercise10(){
+
+        int[][] multi = new int[10][10];
+
+        int row=1, column=1;                             //Iterates through all columns of each array
+        for(int i = 0; i< multi.length; i++){
+            for(int k =0; k< multi[i].length; k++){
+                multi[i][k]=row*column;                 // 10x array rows x 10x columns
+                column++;
+            }
+            row=row+1;
+            column=1;
+        }
+        for (int[] ints : multi) {
+            for (int k = 0; k < multi.length; k++) {                //iterate through rows and columns
+                System.out.print(ints[k] + "\t");                   // and print up until multi.length to break
+            }
+            System.out.println("");                                  //new print line for next row of columns
+        }
+    }
+
+    public static void arrayExercise11() {
 
     }
 }

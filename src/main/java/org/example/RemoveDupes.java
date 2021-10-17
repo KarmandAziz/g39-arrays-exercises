@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 
-public class RemoveDups {
+public class RemoveDupes {
 
 
     public static String removeStringDup(String str[], int n) {
